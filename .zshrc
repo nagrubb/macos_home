@@ -6,7 +6,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export GREP_OPTIONS='--color=always'
 export GREP_COLOR='1;35;40'
 
-# Fix macOS stupidness and use openssl from brew (specifically causes issues with Python)
+# Fix macOS and use openssl from brew (specifically causes issues with Python)
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
@@ -18,24 +18,35 @@ alias lsusb="system_profiler SPUSBDataType"
 function new-mac {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update && brew upgrade
-  brew install --cask 1password
-  brew install --cask iterm2
-  brew install --cask itsycal
-  brew install --cask atom
-  brew install --cask tunnelblick
-  brew install --cask android-platform-tools
-  brew install --cask spotify
-  brew install --cask bettertouchtool
-  brew install --cask gimp
-  brew install fanny
-  brew install jq
-  brew install minicom
-  brew install wget
-  brew install curl
-  brew install git
-  brew install hub
-  brew install gpg
-  brew install nmap
+
+  cask_tools=(
+    1password
+    iterm2
+    itsycal
+    atom
+    tunnelblick
+    android-platform-tools
+    spotify
+    bettertouchtool
+    gimp
+  )
+
+  tools=(
+    fanny
+    minicom
+    jq
+    wget
+    curl
+    git
+    hub
+    gpg
+    nmap
+    tldr
+    bat
+  )
+  
+  brew install --cask $cask_tools
+  brew install $tools
 }
 
 
