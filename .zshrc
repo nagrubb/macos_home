@@ -201,5 +201,19 @@ function kc_pod_info {
   kubectl get pods ${POD} -o jsonpath='{.spec}'
 }
 
+function ssh_to_pem { zoo
+  ssh-keygen -p -N "" -m pem -f $1
+}
 
+function pem_to_ssh {
+  ssh-keygen -p -N "" -f $1
+}
 
+function encrypt_ssh {
+  openssl rsautl -encrypt -pubin -inkey <(ssh-keygen -f $1 -e -m PKCS8)
+}
+
+function decrypt_ssh {
+  # Requires private key in PEM format which can be done with
+  openssl rsautl -decrypt -inkey $1 -in $1
+}
