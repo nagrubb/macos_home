@@ -1,4 +1,9 @@
-alias git=hub
+if ! type hub > /dev/null; then
+  echo "hub is not installed"
+else
+  alias git=hub
+fi
+
 alias kc=kubectl
 
 export CLICOLOR=1
