@@ -13,7 +13,7 @@ export GREP_COLOR='1;35;40'
 
 # Fix macOS and use openssl from brew (specifically causes issues with Python)
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:/opt/homebrew/bin:$PATH"
 
 alias lsusb="system_profiler SPUSBDataType"
 
@@ -22,7 +22,6 @@ alias lsusb="system_profiler SPUSBDataType"
 
 function new-mac {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  export PATH="$PATH:/opt/homebrew/bin"
   brew update && brew upgrade
 
   cask_tools=(
