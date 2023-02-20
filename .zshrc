@@ -20,13 +20,10 @@ function new-mac {
   brew update && brew upgrade
 
   cask_tools=(
-    1password
     iterm2
     itsycal
     atom
-    tunnelblick
     android-platform-tools
-    spotify
     bettertouchtool
     gimp
   )
