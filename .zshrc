@@ -45,6 +45,7 @@ function new-mac {
     nmap
     tldr
     bat
+    lastpass-cli
   )
   
   brew install --cask $cask_tools
