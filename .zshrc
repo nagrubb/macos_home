@@ -23,6 +23,7 @@ alias lsusb="system_profiler SPUSBDataType"
 function new-mac {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew update && brew upgrade
+  export PATH="$PATH:/opt/homebrew/bin"
 
   cask_tools=(
     iterm2
